@@ -1,4 +1,4 @@
-# VisionBit Secure Wallet
+# VisionBit Secure Wallet V2.4.0
 VisionBit Secure Wallet
 
 VisionBit ist ein hochsicherer, clientseitiger Generator für Bitcoin Cold Wallets. Entwickelt für die Nutzung in vollständig isolierten Umgebungen (Air-Gapped), implementiert VisionBit moderne kryptografische Standards (BIP-39, BIP-84), um private Schlüssel sicher offline zu generieren.
