@@ -5,6 +5,9 @@ VisionBit ist ein hochsicherer, clientseitiger Generator für Bitcoin Cold Walle
 
 Das Projekt ist vollständig Open Source, transparent und darauf ausgelegt, ohne externe Serververbindungen zu funktionieren.
 
+<img width="1920" height="1080" alt="image_2026-01-11_01-19-31" src="https://github.com/user-attachments/assets/983b0b83-4969-4785-ba5e-abe63865953f" />
+
+
 🛡️ Sicherheits-Architektur
 
 Sicherheit steht bei VisionBit an erster Stelle. Das Design folgt dem Prinzip "Don't Trust, Verify".
@@ -31,6 +34,9 @@ Paper Wallet Support: Druckoptimierte Ansicht zum physischen Sichern der Schlüs
 
 Zero-Knowledge: Die App hat kein "Gedächtnis". Ein Reload (oder Schließen des Browsers) löscht alle sensiblen Daten aus dem RAM.
 
+<img width="1920" height="1080" alt="image_2026-01-11_11-34-25" src="https://github.com/user-attachments/assets/372854e4-384a-4e0b-a4cc-7bfb53418112" />
+
+
 🛠️ Technologie-Stack
 
 Der Code ist modern, modular und typensicher aufgebaut, um Audits zu erleichtern.
@@ -46,6 +52,9 @@ Kryptografie:
 bip39: Mnemonic Generierung
 
 bitcoinjs-lib: Adress- & Transaktionslogik
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c8726d96-c557-4b2b-b29c-ac49816eb961" />
+
 
 tiny-secp256k1: Elliptic Curve Cryptography (WASM-optimiert)
 
