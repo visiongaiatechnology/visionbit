@@ -63,8 +63,8 @@ Setup
 
 Repository klonen:
 
-git clone [https://github.com/visiongaiatechnology/visionbit](https://github.com/DEIN_USERNAME/visionbit-secure-wallet.git)
-cd visionbit-secure-wallet
+git clone [https://github.com/visiongaiatechnology/visionbit](https://github.com/visiongaiatechnology/visionbit.git)
+cd visionbit
 
 
 Abhängigkeiten installieren:
