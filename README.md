@@ -1,130 +1,180 @@
-# VisionBit Secure Wallet V2.4.0
-VisionBit Secure Wallet
+# 🔐 VisionBit Secure Wallet
 
-VisionBit ist ein hochsicherer, clientseitiger Generator für Bitcoin Cold Wallets. Entwickelt für die Nutzung in vollständig isolierten Umgebungen (Air-Gapped), implementiert VisionBit moderne kryptografische Standards (BIP-39, BIP-84), um private Schlüssel sicher offline zu generieren.
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+[![Bitcoin](https://img.shields.io/badge/Bitcoin-BIP--39%20%2F%20BIP--84-F7931A?style=for-the-badge&logo=bitcoin)](https://bitcoin.org)
+[![Status](https://img.shields.io/badge/Status-DIAMANT-purple?style=for-the-badge)](#)
+[![VGT](https://img.shields.io/badge/VGT-VisionGaia_Technology-red?style=for-the-badge)](https://visiongaiatechnology.de)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal)](https://www.paypal.com/paypalme/dergoldenelotus)
 
-Das Projekt ist vollständig Open Source, transparent und darauf ausgelegt, ohne externe Serververbindungen zu funktionieren.
+> *"Not your keys, not your coins. Not your device, not your keys."*
 
-<img width="1920" height="1080" alt="image_2026-01-11_01-19-31" src="https://github.com/user-attachments/assets/983b0b83-4969-4785-ba5e-abe63865953f" />
+**VisionBit** is a high-security, client-side Bitcoin Cold Wallet generator — built for air-gapped environments. No servers. No telemetry. No trust required.
 
+Implements modern cryptographic standards (BIP-39, BIP-84) to generate private keys entirely offline, with physical entropy collection through mouse movement to eliminate browser RNG dependency.
 
-🛡️ Sicherheits-Architektur
+---
 
-Sicherheit steht bei VisionBit an erster Stelle. Das Design folgt dem Prinzip "Don't Trust, Verify".
+![VisionBit Interface](https://private-user-images.githubusercontent.com/31537456/534342407-983b0b83-4969-4785-ba5e-abe63865953f.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzM1MDQ2NzQsIm5iZiI6MTc3MzUwNDM3NCwicGF0aCI6Ii8zMTUzNzQ1Ni81MzQzNDI0MDctOTgzYjBiODMtNDk2OS00Nzg1LWJhNWUtYWJlNjM4NjU5NTNmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzE0VDE2MDYxNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTg0OGNkZDRmOWM1NmIxMGIzMTljYTlmMTdiMzcyZWRiNGMxZjg1M2UyNWFlODFmNGFiNzQzMTk4MTU2NTE4N2MmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.GB4eYqAQ4QGLbD_J5zpeRbUnSS92PQ3xpVycegkRvNQ)
 
-Client-Side Execution Only: Der gesamte Code läuft lokal im Browser. Es werden keinerlei Daten (Keys, Mnemonic, Adressen) an Server gesendet.
+---
 
-True Entropy Generation: Wir verlassen uns nicht allein auf den Zufallsgenerator des Browsers (window.crypto). VisionBit sammelt zusätzlich physikalische Entropie durch Mausbewegungen des Nutzers und mischt diese mittels XOR-Operationen in den Entropie-Pool.
+## 🚨 Why Most Wallet Generators Are Dangerous
 
-Offline-First: Das Build-System ist darauf ausgelegt, eine statische HTML/JS-Sammlung zu erzeugen, die per USB-Stick auf einen Offline-Rechner übertragen werden kann.
+Most online wallet generators silently send your private keys to remote servers — or depend entirely on the browser's built-in RNG, which can be predicted or manipulated in compromised environments.
 
-No External Dependencies at Runtime: Im Produktions-Build (dist Ordner) werden keine Skripte von CDNs nachgeladen. Alles ist gebündelt.
+| Standard Generator | VisionBit |
+|---|---|
+| ❌ Server-side key generation risk | ✅ 100% client-side execution |
+| ❌ Browser RNG only (predictable) | ✅ Physical entropy via mouse movement |
+| ❌ External CDN dependencies at runtime | ✅ Zero external dependencies in production |
+| ❌ Keys stored in browser memory | ✅ Zero-Knowledge — reload wipes all data |
+| ❌ Not designed for air-gap use | ✅ Offline-first, USB-deployable build |
 
-🚀 Features
+---
 
-BIP-39 Standard: Erstellung von 24-Wörter Mnemonics (256-Bit Sicherheit).
+## 🛡️ Security Architecture
 
-BIP-84 (Native SegWit): Generierung moderner bc1q... Adressen für geringere Transaktionsgebühren.
+VisionBit follows the principle: **"Don't Trust, Verify."**
 
-BIP-39 Passphrase: Unterstützung für optionale Passphrasen (Salt) für zusätzliche Sicherheit ("Plausible Deniability").
+### Client-Side Execution Only
+Every cryptographic operation runs locally in your browser. No keys, no mnemonics, no addresses ever leave your machine.
 
-Hierarchisch Deterministisch (HD): Ableitung von Schlüsseln und Adressen nach Standard-Pfaden (m/84'/0'/0'/0/0).
+### True Entropy Generation
+VisionBit does not rely solely on `window.crypto`. It collects **physical entropy** through your mouse movements and mixes it into the entropy pool via XOR operations — making key generation resistant to browser RNG weaknesses.
 
-Paper Wallet Support: Druckoptimierte Ansicht zum physischen Sichern der Schlüssel.
+### Offline-First Build System
+The production build (`dist/`) is a fully self-contained static HTML/JS bundle. Copy it to a USB stick and run it on a machine that has never touched the internet.
 
-Zero-Knowledge: Die App hat kein "Gedächtnis". Ein Reload (oder Schließen des Browsers) löscht alle sensiblen Daten aus dem RAM.
+### Zero-Knowledge Design
+The app has no memory. Closing or reloading the browser tab destroys all sensitive data from RAM. Nothing is ever persisted.
 
-<img width="1920" height="1080" alt="image_2026-01-11_11-34-25" src="https://github.com/user-attachments/assets/372854e4-384a-4e0b-a4cc-7bfb53418112" />
+---
 
+## ✨ Features
 
-🛠️ Technologie-Stack
+| Feature | Standard | Description |
+|---|---|---|
+| **BIP-39** | ✅ | 24-word mnemonic generation (256-bit security) |
+| **BIP-84** | ✅ | Native SegWit `bc1q...` addresses — lower fees |
+| **BIP-39 Passphrase** | ✅ | Optional salt for plausible deniability |
+| **HD Wallet** | ✅ | Hierarchical Deterministic key derivation `m/84'/0'/0'/0/0` |
+| **Paper Wallet** | ✅ | Print-optimized view for physical key backup |
+| **Air-Gap Ready** | ✅ | USB-deployable offline build |
+| **Zero-Knowledge** | ✅ | Reload = full memory wipe |
 
-Der Code ist modern, modular und typensicher aufgebaut, um Audits zu erleichtern.
+---
 
-Core Framework: React 18, TypeScript
+## 📸 Screenshots
 
-Build Tool: Vite (High-Performance Bundler)
+<p align="center">
+  <img src="https://private-user-images.githubusercontent.com/31537456/534342482-372854e4-384a-4e0b-a4cc-7bfb53418112.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzM1MDQ2NzQsIm5iZiI6MTc3MzUwNDM3NCwicGF0aCI6Ii8zMTUzNzQ1Ni81MzQzNDI0ODItMzcyODU0ZTQtMzg0YS00ZTBiLWE0Y2MtN2JmYjUzNDE4MTEyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzE0VDE2MDYxNFomWC1BbXotU2lnbmF0dXJlPTFiOTJhYWUwZmM2YWU1ZWIxN2RiZTRiYjc3ZGMxNmI3YjE1N2ZhZjE5MDdiZTc5ODU0NDI1MDY2NGMxNDU1NmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.hRBUwXOlIgqkeuwA9ZyLXroltPELyRKJLxW5Z3j4AdU" width="48%" />
+  <img src="https://private-user-images.githubusercontent.com/31537456/534342630-c8726d96-c557-4b2b-b29c-ac49816eb961.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzM1MDQ2NzQsIm5iZiI6MTc3MzUwNDM3NCwicGF0aCI6Ii8zMTUzNzQ1Ni81MzQzNDI2MzAtYzg3MjZkOTYtYzU1Ny00YjJiLWIyOWMtYWM0OTgxNmViOTYxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzE0VDE2MDYxNFomWC1BbXotU2lnbmF0dXJlPWI5NTJlNjQ2YjRlMDg1MzU0YmJiNGZlYjIwOWZjM2E1NjkwNGE3YjVjNzA1MDQzNzBkNjU0ZWJjNjM5NTUxNjEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.G34_27_eMqZRigT57g3shl2ipQ-wIcQ9mR6HdkqtDXE" width="48%" />
+</p>
 
-Styling: Tailwind CSS
+---
 
-Kryptografie:
+## 🛠️ Tech Stack
 
-bip39: Mnemonic Generierung
+| Layer | Technology |
+|---|---|
+| **Framework** | React 18 + TypeScript (Strict) |
+| **Build Tool** | Vite |
+| **Styling** | Tailwind CSS |
+| **Mnemonic** | `bip39` — BIP-39 standard |
+| **Bitcoin Logic** | `bitcoinjs-lib` — Address & transaction |
+| **ECC** | `tiny-secp256k1` — WASM-optimized Elliptic Curve |
+| **Key Derivation** | `pbkdf2` |
 
-bitcoinjs-lib: Adress- & Transaktionslogik
+---
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c8726d96-c557-4b2b-b29c-ac49816eb961" />
+## 🚀 Installation
 
+### Requirements
+- Node.js 18+
+- Yarn
 
-tiny-secp256k1: Elliptic Curve Cryptography (WASM-optimiert)
+### Setup
 
-pbkdf2: Schlüsselableitung
-
-📦 Installation & Entwicklung
-
-Voraussetzungen
-
-Node.js (Version 18+ empfohlen)
-
-Yarn Paketmanager
-
-Setup
-
-Repository klonen:
-
-git clone [https://github.com/visiongaiatechnology/visionbit](https://github.com/visiongaiatechnology/visionbit.git)
+```bash
+# Clone the repository
+git clone https://github.com/visiongaiatechnology/visionbit
 cd visionbit
 
-
-Abhängigkeiten installieren:
-
+# Install dependencies
 yarn install
 
-
-Entwicklungsserver starten:
-
+# Start development server
 yarn dev
+```
 
+The app is now available at `http://localhost:5173`
 
-Die App ist nun unter http://localhost:5173 erreichbar.
+---
 
-🔒 Anleitung für den sicheren Offline-Einsatz (Cold Storage)
+## 🔒 Air-Gap Deployment Guide
 
-Für die Generierung echter Wallets mit signifikanten Werten wird dringend empfohlen, dies auf einem Computer zu tun, der physisch vom Internet getrennt ist.
+For generating wallets with significant value, **always use an air-gapped machine.**
 
-Build erstellen:
-Erstelle auf deinem Online-PC den Produktions-Build:
-
+**Step 1 — Build on your online PC:**
+```bash
 yarn build
+```
+This produces a `dist/` folder with the complete, self-contained application.
 
+**Step 2 — Transfer to USB:**
+Copy the entire `dist/` folder to a clean USB stick.
 
-Dies erzeugt einen Ordner dist, der die komplette, kompilierte Anwendung enthält.
+**Step 3 — Air-Gap environment:**
+- Disconnect the target machine from all networks (WiFi off, cable unplugged)
+- Insert the USB stick
+- Open the files locally
 
-Transfer:
-Kopiere den gesamten Inhalt des Ordners dist auf einen sauberen USB-Stick.
+> **Note:** Some browsers block local ES modules. If needed, run a local static server on the offline machine:
+> ```bash
+> python3 -m http.server
+> ```
 
-Air-Gap (Offline) Umgebung:
+**Step 4 — Generate & secure:**
+Follow the on-screen instructions. Write your 24 words on paper (or stamp them into metal). Reboot the machine afterward to clear RAM.
 
-Stecke den USB-Stick in einen Computer, der keine Netzwerkverbindung hat (WLAN aus, Kabel gezogen).
+---
 
-Öffne die Dateien vom Stick.
+## ⚠️ Disclaimer
 
-Hinweis: Manche Browser blockieren lokale ES-Module. In diesem Fall kann ein lokaler statischer Server (z.B. Python: python3 -m http.server) auf dem Offline-Gerät notwendig sein, oder die Nutzung eines Browsers, der lokale Dateizugriffe erlaubt.
+**USE AT YOUR OWN RISK.**
 
-Generierung:
-Folge den Anweisungen auf dem Bildschirm, notiere die 24 Wörter auf Papier (oder stanze sie in Metall) und vernichte danach idealerweise den temporären RAM-Inhalt durch Neustart des Rechners.
+This software is provided "as is" without warranty of any kind. Although the code is written to modern security standards using established cryptographic libraries, the developers assume no liability for lost coins, implementation errors, or hardware failures.
 
-📄 Lizenz
+**Responsible handling of private keys is solely the user's responsibility.**
 
-Dieses Projekt ist unter der MIT License lizenziert.
-Das bedeutet maximale Freiheit: Du darfst den Code verwenden, kopieren, verändern und verbreiten.
+---
 
-Siehe LICENSE für Details.
+## 🤝 Contributing
 
-⚠️ Disclaimer / Haftungsausschluss
+Pull requests are welcome. For major changes, please open an issue first.
 
-NUTZUNG AUF EIGENE GEFAHR.
+Licensed under **MIT** — maximum freedom to use, copy, modify and distribute.
 
-Diese Software wird "so wie sie ist" ohne jegliche Garantie bereitgestellt. Obwohl der Code nach besten Sicherheitsstandards und unter Verwendung etablierter kryptografischer Bibliotheken geschrieben wurde, übernehmen die Entwickler keine Haftung für verlorene Coins, Fehler in der Implementierung oder Hardware-Probleme.
+---
 
-Verantwortungsvoller Umgang mit privaten Schlüsseln liegt allein beim Nutzer.
+## ☕ Support the Project
+
+VisionBit is free and open source. If it helps secure your Bitcoin:
+
+[![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal)](https://www.paypal.com/paypalme/dergoldenelotus)
+
+---
+
+## 🏢 Built by VisionGaia Technology
+
+[![VGT](https://img.shields.io/badge/VGT-VisionGaia_Technology-red?style=for-the-badge)](https://visiongaiatechnology.de)
+
+VisionGaia Technology builds enterprise-grade security and AI tooling — engineered to the DIAMANT VGT SUPREME standard.
+
+> *"In a world where exchanges collapse and custodians fail, sovereignty begins with your own keys."*
+
+---
+
+*Version 2.4.0 — VisionBit Secure Wallet // Air-Gap Architecture*
