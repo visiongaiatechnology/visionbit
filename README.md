@@ -14,6 +14,14 @@
 
 Implements modern cryptographic standards (BIP-39, BIP-84) to generate private keys entirely offline, with physical entropy collection through mouse movement to eliminate browser RNG dependency.
 
+
+## ⚠️ DISCLAIMER: EXPERIMENTAL R&D PROJECT
+
+This project is a **Proof of Concept (PoC)** Security Layer. It is **not** a Enterprise Wallet, and can be unsafe.
+
+**Do not use this in critical production environments.** For enterprise-grade kernel-level protection, we recommend established Solutions.
+
+
 ---
 
 ![VisionBit Interface](https://private-user-images.githubusercontent.com/31537456/534342407-983b0b83-4969-4785-ba5e-abe63865953f.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzM1MDQ2NzQsIm5iZiI6MTc3MzUwNDM3NCwicGF0aCI6Ii8zMTUzNzQ1Ni81MzQzNDI0MDctOTgzYjBiODMtNDk2OS00Nzg1LWJhNWUtYWJlNjM4NjU5NTNmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzE0VDE2MDYxNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTg0OGNkZDRmOWM1NmIxMGIzMTljYTlmMTdiMzcyZWRiNGMxZjg1M2UyNWFlODFmNGFiNzQzMTk4MTU2NTE4N2MmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.GB4eYqAQ4QGLbD_J5zpeRbUnSS92PQ3xpVycegkRvNQ)
