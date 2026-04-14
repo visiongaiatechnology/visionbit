@@ -17,9 +17,17 @@ Implements modern cryptographic standards (BIP-39, BIP-84) to generate private k
 
 ## ⚠️ DISCLAIMER: EXPERIMENTAL R&D PROJECT
 
-This project is a **Proof of Concept (PoC)** Security Layer. It is **not** a Enterprise Wallet, and can be unsafe.
+This project is a **Proof of Concept (PoC)** and part of ongoing research and development at
+VisionGaia Technology. It is **not** a certified or production-ready product.
 
-**Do not use this in critical production environments.** For enterprise-grade kernel-level protection, we recommend established Solutions.
+**Use at your own risk.** The software may contain security vulnerabilities, bugs, or
+unexpected behavior. It may break your environment if misconfigured or used improperly.
+
+**Do not deploy in critical production environments** unless you have thoroughly audited
+the code and understand the implications. For enterprise-grade, verified protection,
+we recommend established and officially certified solutions.
+
+Found a vulnerability or have an improvement? **Open an issue or contact us.**
 
 
 ---
